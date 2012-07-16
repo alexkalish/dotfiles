@@ -1,0 +1,22 @@
+[alias]
+  co = checkout
+  a = add
+  ci = commit
+  b = branch
+  m = merge
+  s = status
+  l = log --pretty=oneline --abbrev-commit --graph --decorate
+  unstage = reset HEAD
+  staged = diff --cached
+  unstaged = diff
+[user]
+  name = Alex Kalish
+  email = alex@fiksu.com
+[merge]
+  tool = vimdiff
+[core]
+  editor = vim
+[color]
+  diff = auto
+  status = auto
+  branch = auto
