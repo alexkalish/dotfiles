@@ -14,9 +14,15 @@
   email = alex@fiksu.com
 [merge]
   tool = vimdiff
+[mergetool]
+  prompt = false
 [core]
   editor = vim
 [color]
   diff = auto
   status = auto
   branch = auto
+[diff]
+  tool = vimdiff
+[difftool]
+  prompt = false
