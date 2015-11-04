@@ -1,0 +1,14 @@
+SET WORK_MEM = 1024000;
+\set PROMPT1 '%/@%m:%> %R%# '
+-- Autocomplete upper case.
+\set COMP_KEYWORD_CASE upper
+-- Ignore dups in history.
+\set HISTCONTROL ignoredups
+-- Separate history file per DB.
+\set HISTFILE ~/.psql_history- :DBNAME
+-- Verbose error reports.
+\set VERBOSITY verbose
+-- Show nulls.
+\pset null '[NULL]'
+\x auto
+\timing

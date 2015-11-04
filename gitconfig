@@ -1,0 +1,31 @@
+[alias]
+  co = checkout
+  a = add
+  ci = commit
+  b = branch
+  m = merge
+  s = status
+  d = diff
+  dl = diff --name-status
+  dt = difftool
+  l = log --pretty=oneline --abbrev-commit --graph --decorate
+  poh = push -u origin HEAD
+[user]
+  name = Alex Kalish
+  email = alex@fiksu.com
+[merge]
+  tool = vimdiff
+[mergetool]
+  prompt = false
+[core]
+  editor = vim
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+[diff]
+  tool = vimdiff
+[difftool]
+  prompt = false
+[web]
+  browser = open
