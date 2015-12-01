@@ -25,7 +25,6 @@ Plugin 'scrooloose/nerdtree.git'
 Plugin 'tsaleh/vim-align.git'
 Plugin 'tsaleh/vim-supertab.git'
 Plugin 'tomtom/tcomment_vim.git'
-" Plugin 'mileszs/ack.vim.git'
 Plugin 'rking/ag.vim'
 Plugin 'rizzatti/funcoo.vim'
 Plugin 'rizzatti/dash.vim'
@@ -36,6 +35,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'eiginn/netrw'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+Plugin 'elzr/vim-json'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -79,6 +79,11 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#whitespace#symbol = '@'
 
+" for syntastic
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_json_checkers = ['eslint']
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '!'
 
 " move cursor as expected with wrapped lines
 :nmap j gj
