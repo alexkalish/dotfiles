@@ -1,15 +1,16 @@
 set nocompatible
 filetype off
 
+" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" let Vundle manage Vundle
-" required!
-Plugin 'gmarik/vundle'
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'altercation/vim-colors-solarized.git'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-ruby/vim-ruby.git'
 Plugin 'tpope/vim-rails.git'
 Plugin 'thoughtbot/vim-rspec'
@@ -31,19 +32,23 @@ Plugin 'rizzatti/dash.vim'
 Plugin 'vim-scripts/SQLUtilities'
 Plugin 'freitass/todo.txt-vim'
 Plugin 'alexkalish/vim-marked'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'eiginn/netrw'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'elzr/vim-json'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'Scuilion/gradle-syntastic-plugin'
+" Plugin 'ryanoasis/vim-devicons'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
-filetype plugin indent on    " required
+filetype plugin indent on    " required 
 
 " Enable syntax processing.
 syntax on
 
+set encoding=utf-8 " fix nerdtree arrows
 set smartindent
 set expandtab " tabs are spaces
 set showtabline=2
@@ -77,13 +82,24 @@ set laststatus=2
 set noshowmode
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#whitespace#enabled = 1
 let g:airline#extensions#whitespace#symbol = '@'
+" let g:airline_powerline_fonts = 1
 
 " for syntastic
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_json_checkers = ['eslint']
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '!'
+let g:syntastic_java_checkers=['javac']
+let g:syntastic_java_javac_config_file_enabled = 1
+
+" for vim-ident-guides
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+
+" for vim-json
+let g:vim_json_syntax_conceal = 0
 
 " move cursor as expected with wrapped lines
 :nmap j gj
@@ -119,7 +135,6 @@ nnoremap <leader>a :Ag<space>
 
 " NERDTree
 noremap <leader>n :NERDTreeToggle<CR>
-set encoding=utf-8 " fix nerdtree arrows
 
 " Fix endwise
 autocmd FileType ruby,eruby :let g:AutoCloseExpandEnterOn=""
@@ -133,9 +148,9 @@ colorscheme solarized
 set diffopt=filler,context:1000000
 
 " Rspec.vim mappings
-let g:rspec_command = "!rspec {spec}"
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
+let g:rspec_command = "!zeus rspec {spec}"
+map <Leader>f :call RunCurrentSpecFile()<CR>
+map <Leader>l :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 
 " Preview markdown file in Marked.
